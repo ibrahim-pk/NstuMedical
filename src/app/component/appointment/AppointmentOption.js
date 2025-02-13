@@ -8,8 +8,10 @@ const AppointmentOption = ({ appointmentOption, date }) => {
   const { title, time, value, slot } = appointmentOption;
   const [open, setOpen] = useState(false);
   const [loader, setLoader] = useState(false);
-  const userInfo = JSON.parse(localStorage.getItem("userInfo")) || {};
-
+  //const userInfo = JSON.parse(localStorage.getItem("userInfo")) || {};
+  const userInfo={
+    name:""
+  }
   const [formData, setFormData] = useState({
     patientName: userInfo.name || "",
     studentId: userInfo.id || "",
