@@ -3,15 +3,15 @@ import Image from "next/image";
 export default function HelpSupport() {
   return (
     <div className="bg-gray-100 py-5">
-      <div className="mx-auto  max-w-screen-lg">
+      <div className="mx-auto  max-w-screen-lg px-5 md:px-0">
         <div className="flex flex-col bg-white rounded-lg md:flex-row items-center justify-center ">
           {/* Left Side - Doctor Image */}
           <div className="md:w-1/2 flex justify-center">
             <Image
               src="/images/doctor.png"
               alt="Doctor"
-              width={400}
-              height={500}
+              width={300}
+              height={400}
               className="rounded-lg"
             />
           </div>
