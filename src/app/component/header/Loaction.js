@@ -45,7 +45,7 @@ const LocationCom = () => {
 
     useEffect(() => {
         const script = document.createElement("script");
-        script.src = "https://maps.gomaps.pro/maps/api/js?key=pkAlzaSyxmW3tjPJP92PFoWMJYR7-viNAE6Iz3Z3v&libraries=geometry,places&callback=initMap";
+        script.src = "https://maps.gomaps.pro/maps/api/js?key=AlzaSyxmW3tjPJP92PFoWMJYR7-viNAE6Iz3Z3v&libraries=geometry,places&callback=initMap";
         script.async = true;
         script.defer = true;
         document.body.appendChild(script);
@@ -102,9 +102,9 @@ const LocationCom = () => {
     }, [location]);
 
     return (
-        <div className="bg-gray-100  py-10">
+        <div className="bg-gray-100  py-10 px-5 md:px-0">
             <div className="mx-auto max-w-screen-lg">
-                <h1 className="text-xl font-bold my-5" >Live Loaction</h1>
+                <h1 className="text-xl font-bold  my-5" >Live Loaction</h1>
             <div className="relative w-full h-[400px] ">
                 {/* 🚑 Running Ambulance */}
                 <div className="absolute top-1/2 left-0 transform -translate-y-1/2 w-[300px] sm:w-[250px] lg:w-[400px] z-30">

@@ -47,7 +47,12 @@ const AmbulanceTracker = () => {
     }
   }, []);
 
-  return <h2>🚑 Tracking Started... Keep this page open!</h2>;
+  return(
+    <div className="mx-auto max-w-screen-lg max-h-screen-lg py-5 px-5 md:px-0">
+      <h2 className="my-5 font-bold text-xl">🚑 Tracking Started... Keep this page open!</h2>
+      <img  src="/images/tracker.png"  alt="loctation tracking"/>
+    </div>
+  );
 };
 
 export default AmbulanceTracker;
