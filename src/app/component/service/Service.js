@@ -30,16 +30,7 @@ export default function AllService() {
 
   return (
     <div className="bg-gray-100 py-10 px-5 gap-6">
-      {/* Ambulance Card */}
-      {/* <div>
-      <div className="bg-white p-4 my-3 rounded-lg  w-96 mx-5 max-w-sm flex flex-col items-center text-center">
-        <Image src="/images/ambulace.png" alt="Car Logo" width={150} height={150} />
-        <h3 className="text-lg font-semibold mt-2">Ambulance No: {ambulanceData.ambulanceNo}</h3>
-        <p className="text-sm text-gray-600">Driver: {ambulanceData.driverName}</p>
-        <p className="text-sm text-gray-600">Contact: {ambulanceData.driverNumber}</p>
-      </div>
-
-      </div> */}
+     
 
       {/* Medicine Table */}
       <div className="bg-white p-6 rounded-lg  mx-auto max-w-screen-lg ">
