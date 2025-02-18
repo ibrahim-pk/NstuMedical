@@ -2,22 +2,10 @@
 
 import Image from "next/image";
 import { useState, useRef, useEffect } from "react";
-import { initializeApp } from "firebase/app";
 import { getDatabase, ref, onValue } from "firebase/database";
+import app from "@/firebase/FirebaseConfig";
 
-const firebaseConfig = {
-    apiKey: "AIzaSyBqer9_ROTkBIZiN-Qa3wOO5WufNHeX8KA",
-    authDomain: "nstu-medical.firebaseapp.com",
-    projectId: "nstu-medical",
-    databaseURL: "https://nstu-medical-default-rtdb.asia-southeast1.firebasedatabase.app",
-    storageBucket: "nstu-medical.firebasestorage.app",
-    messagingSenderId: "963214538609",
-    appId: "1:963214538609:web:8be4ceaf846b1b6dcba8d0",
-    measurementId: "G-J112G4PMDP"
-};
 
-// 🔹 Firebase Init
-const app = initializeApp(firebaseConfig);
 const database = getDatabase(app);
 
 const LocationCom = () => {

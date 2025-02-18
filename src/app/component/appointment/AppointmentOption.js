@@ -8,38 +8,51 @@ const AppointmentOption = ({ appointmentOption, date }) => {
   const { title, time, value, slot } = appointmentOption;
   const [open, setOpen] = useState(false);
   const [loader, setLoader] = useState(false);
-  const userInfo = JSON.parse(localStorage.getItem("userInfo")) || {};
-  //console.log(userInfo)
   const [formData, setFormData] = useState({
-    patientName: userInfo.name || "",
-    studentId: userInfo.id || "",
-    mobileNo: userInfo.phone || "",
+    patientName: "",
+    studentId: "",
+    mobileNo: "",
     date: date,
     time: time,
-    gender: userInfo.gender || "",
+    gender: "",
     issues: "",
     slot: value,
-    userId: userInfo._id || "",
+    userId: "",
   });
+
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      const userInfo = JSON.parse(localStorage.getItem("userInfo")) || {};
+      setFormData((prevData) => ({
+        ...prevData,
+        patientName: userInfo.name || "",
+        studentId: userInfo.studentID || "",
+        mobileNo: userInfo.phone || "",
+        gender: userInfo.gender || "",
+        userId: userInfo._id || "",
+      }));
+    }
+  }, []);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setFormData({
-      ...formData,
+    setFormData((prevData) => ({
+      ...prevData,
       [name]: value,
-    });
+    }));
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoader(true);
-    //console.log(formData)
+
     try {
       const res = await fetch("http://localhost:5000/api/v1/appointment/book", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),
       });
+
       const data = await res.json();
       setLoader(false);
       if (data?.msg) {
@@ -66,13 +79,17 @@ const AppointmentOption = ({ appointmentOption, date }) => {
         {slot ? "Booked" : "Book Now"}
       </button>
       <Toaster position="top-center" reverseOrder={false} />
+      
       <Dialog open={open} onClose={() => setOpen(false)} className="fixed inset-0 flex items-center justify-center z-50">
         <div className="bg-white p-6 rounded-lg shadow-lg w-96">
-        <div className="flex justify-between">
-        <h3 className="text-lg font-semibold">Appointment Form</h3>
-        <h3 className="text-xl font-bold text-rose-400"><span onClick={() => setOpen(false)}>X</span></h3>
-        </div>
+          <div className="flex justify-between">
+            <h3 className="text-lg font-semibold">Appointment Form</h3>
+            <h3 className="text-xl font-bold text-rose-400">
+              <span onClick={() => setOpen(false)}>X</span>
+            </h3>
+          </div>
           <hr className="my-2" />
+          
           <form onSubmit={handleSubmit} className="space-y-3">
             <input type="text" name="patientName" value={formData.patientName} onChange={handleChange} placeholder="Full Name" className="w-full p-2 border rounded" required />
             <input type="text" name="gender" value={formData.gender} onChange={handleChange} placeholder="Gender" className="w-full p-2 border rounded" required />
