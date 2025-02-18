@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 
 const HeaderSection = () => {
   return (
@@ -19,7 +20,7 @@ const HeaderSection = () => {
 
       {/* Content */}
       <div className="relative z-10 max-w-xl mx-auto">
-        <h1 className="text-2xl md:text-3xl font-bold">Medical Centre Hospital</h1>
+        <h1 className="text-2xl md:text-3xl font-bold">Shahid Mugdho Medical Center</h1>
         <p className="mt-4 text-lg md:text-xl">
           At emergency when every moment is important, we care you within less waiting time.
           Please call our hotline 24/7 for any query.
@@ -28,7 +29,7 @@ const HeaderSection = () => {
         {/* Services Grid */}
         <div className="grid grid-cols-3 md:grid-cols-3 gap-4 mt-6">
           {[
-            { icon: "🚑", title: "Ambulance" },
+            { icon: "🚑", title: "Ambulance"},
             { icon: "📈", title: "Location" },
             { icon: "🩺", title: "Doctors" },
             
@@ -42,12 +43,12 @@ const HeaderSection = () => {
 
         {/* Buttons */}
         <div className="mt-6 flex justify-center gap-4">
-          <button className="border border-white py-2 px-4 rounded-md hover:bg-white hover:text-black transition">
+          <Link href="/service" className="border border-white py-2 px-4 rounded-md hover:bg-white hover:text-black transition">
             More Services
-          </button>
-          <button className="border border-white py-2 px-4 rounded-md hover:bg-white hover:text-black transition">
+          </Link>
+          <Link href="/contact" className="border border-white py-2 px-4 rounded-md hover:bg-white hover:text-black transition">
             Contact
-          </button>
+          </Link>
         </div>
       </div>
     </header>

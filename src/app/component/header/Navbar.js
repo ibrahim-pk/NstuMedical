@@ -1,13 +1,20 @@
-
-
 "use client"
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import { Menu, X, Home, User, Bell, Settings, CalendarCheck, Stethoscope, BriefcaseMedical, Phone, LocateIcon } from "lucide-react";
 import Image from "next/image";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
+  const [userId, setUserId] = useState("");
+
+
+    useEffect(() => {
+      if (typeof window !== "undefined") {
+        setUserId(JSON.parse(localStorage.getItem('userInfo'))?._id)
+      }
+
+    }, []);
 
   return (
     <>
@@ -35,7 +42,11 @@ export default function Navbar() {
         </div>
 
         <div className="hidden md:block">
-          <Link href="/login" className="bg-white text-blue-600 px-4 py-2 rounded">Login</Link>
+          {
+            userId?<Link href="/profile" className="bg-white text-blue-600 px-4 py-2 rounded">Profile</Link>:
+            <Link href="/login" className="bg-white text-blue-600 px-4 py-2 rounded">Login</Link>
+          }
+          
         </div>
 
         <button className="md:hidden" onClick={() => setIsOpen(!isOpen)}>
@@ -55,7 +66,10 @@ export default function Navbar() {
           <Link href="/contact">Contact</Link>
           <Link href="/about">About</Link>
 
-          <Link href="/login" className="bg-white text-blue-600 px-4 py-2 mt-2 rounded">Login</Link>
+          {
+            userId?<Link href="/profile" className="bg-white text-blue-600 px-4 py-2 rounded">Profile</Link>:
+            <Link href="/login" className="bg-white text-blue-600 px-4 py-2 rounded">Login</Link>
+          }
         </div>
       )}
 

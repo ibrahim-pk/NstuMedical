@@ -22,13 +22,14 @@ const AvailableAppointments = ({ selectedDate }) => {
     useEffect(() => {
         const fetchAvailability = async (slot, setter) => {
             try {
-                const res = await fetch(`/api/user/available-appointment/slot${slot}`, {
+                const res = await fetch(`http://localhost:5000/api/v1/appointment/available-appointment/slot${slot}`, {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({ date, value: slot, time: slots[slot - 1].time })
                 });
                 const data = await res.json();
                 setter(data?.booked || false);
+                //console.log(data)
             } catch (error) {
                 console.error("Error fetching data:", error);
             }

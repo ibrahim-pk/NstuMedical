@@ -2,16 +2,14 @@
 
 import React, { useState, useEffect } from "react";
 import { Dialog } from "@headlessui/react";
-import toast from "react-hot-toast";
+import toast, { Toaster } from "react-hot-toast";
 
 const AppointmentOption = ({ appointmentOption, date }) => {
   const { title, time, value, slot } = appointmentOption;
   const [open, setOpen] = useState(false);
   const [loader, setLoader] = useState(false);
-  //const userInfo = JSON.parse(localStorage.getItem("userInfo")) || {};
-  const userInfo={
-    name:""
-  }
+  const userInfo = JSON.parse(localStorage.getItem("userInfo")) || {};
+  //console.log(userInfo)
   const [formData, setFormData] = useState({
     patientName: userInfo.name || "",
     studentId: userInfo.id || "",
@@ -35,8 +33,9 @@ const AppointmentOption = ({ appointmentOption, date }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoader(true);
+    //console.log(formData)
     try {
-      const res = await fetch("http://localhost:5000/api/user/book-appointment", {
+      const res = await fetch("http://localhost:5000/api/v1/appointment/book", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),
@@ -66,7 +65,7 @@ const AppointmentOption = ({ appointmentOption, date }) => {
       >
         {slot ? "Booked" : "Book Now"}
       </button>
-      
+      <Toaster position="top-center" reverseOrder={false} />
       <Dialog open={open} onClose={() => setOpen(false)} className="fixed inset-0 flex items-center justify-center z-50">
         <div className="bg-white p-6 rounded-lg shadow-lg w-96">
         <div className="flex justify-between">

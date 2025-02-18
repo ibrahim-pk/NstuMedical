@@ -1,4 +1,4 @@
-import SlideCarousel from "./component/header/SlideCarouel";
+// import SlideCarousel from "./component/header/SlideCarouel";
 import HelpSupport from "./component/support/Support";
 import AllService from "./component/service/Service";
 import DoctorProfile from "./component/doctor/Profile";
@@ -17,7 +17,6 @@ export default function Home() {
       <DoctorProfile />
       <Specialized />
       <HelpSupport />
-    
       
     </>
   );

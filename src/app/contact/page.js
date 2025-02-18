@@ -1,7 +1,7 @@
 "use client"
 import { QRCode } from "react-qrcode-logo";
 export default function Contact() {
-    const phoneNumber = "8801712345678";
+    const phoneNumber = "+8801792991827";
     const message = "Hello! I want to contact you.";
     const whatsappLink = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
 
@@ -13,7 +13,7 @@ export default function Contact() {
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
                     {/* Address Section */}
 
-                    <div className="bg-white p-6 flex justify-between rounded-lg shadow">
+                    <div className="bg-white p-6 flex flex-col justify-between rounded-lg shadow">
                         <div>
                         <h3 className="text-lg font-semibold mb-2">Shahid Mugdho Medical Center</h3>
                         <p>Noakhali Science and Technology University<br /> Noakhali-3814, Noakhali.,<br /> Website : www.nstu.edu.bd</p>
@@ -25,9 +25,9 @@ export default function Contact() {
                         </div>
                         </div>
                         {/* qr code */}
-                        <div className="flex flex-col items-center space-y-4">
-                            <h2 className="text-lg font-semibold">📞WhatsApp</h2>
-                            <QRCode value={whatsappLink} size={120} />
+                        <div className="flex flex-col my-5 space-y-2">
+                            <h2 className="text-lg font-semibold">WhatsApp for Psychologist</h2>
+                            <QRCode value={whatsappLink} size={150} />
                         </div>
                     </div>
 

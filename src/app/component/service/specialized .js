@@ -1,22 +1,27 @@
+import Link from "next/link";
+
 export default function Specialized() {
     const services = [
         {
             title: "Ammbulance",
-            description: "Duis sit amet nulla vestibulum, interdum felis a, malesuada enim. Ut vel risus accumsan.",
+            description: `01333199085 Or 01333199085`,
             icon: "🏥", // Replace with actual icon
             buttonText: "More Information",
+            link:"/location"
         },
         {
             title: "DOCTORS",
-            description: "Sed id bibendum lectus, sit amet malesuada erat. Lorem ipsum dolor sit amet, consectetur adipis.",
+            description: "02334496572 (Office)",
             icon: "📋", // Replace with actual icon
             buttonText: "Meet Our Doctors",
+            link:"/doctor/profile"
         },
         {
             title: "APPOINTMENTS",
-            description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis tempor congue.",
+            description: "01792991827 (Psychologist)",
             icon: "📅", // Replace with actual icon
             buttonText: "Appoint Consultation",
+             link:"/appointment"
         },
     ];
 
@@ -30,10 +35,10 @@ export default function Specialized() {
                             {service.icon}
                         </div>
                         <h3 className="text-xl font-bold">{service.title}</h3>
-                        <p className="text-white mt-2">{service.description}</p>
-                        <button className="mt-4 px-4 py-2 border border-white rounded-lg text-white hover:bg-white hover:text-blue-500 transition">
+                        <p className="text-white mb-4 mt-2">{service.description}</p>
+                        <Link href={service.link} className="mt-4 px-4 py-2 border border-white rounded-lg text-white hover:bg-white hover:text-blue-500 transition">
                             {service.buttonText}
-                        </button>
+                        </Link>
                     </div>
                 ))}
             </div>
