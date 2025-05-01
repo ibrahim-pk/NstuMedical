@@ -16,7 +16,7 @@ export default function AllService() {
   const fetchMedicines = async () => {
     try {
       const res = await fetch(
-        `http://localhost:5000/api/v1/medicine?page=${page}&limit=${limit}&search=${search}`
+        `https://nstu-medical-server.onrender.com/api/v1/medicine?page=${page}&limit=${limit}&search=${search}`
       );
       const data = await res.json();
       setMedicines(data.medicines);

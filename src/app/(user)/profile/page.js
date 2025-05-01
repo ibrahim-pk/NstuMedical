@@ -45,7 +45,7 @@ export default function UserProfile() {
   // Fetch Appointments
   const fetchAppointments = async () => {
     try {
-      const res = await fetch(`http://localhost:5000/api/v1/appointment/user/${stuId}`);
+      const res = await fetch(`https://nstu-medical-server.onrender.com/api/v1/appointment/user/${stuId}`);
       const data = await res.json();
       setAppointments(data?.data || []);
     } catch (error) {
@@ -56,7 +56,7 @@ export default function UserProfile() {
   // Fetch User Profile
   const fetchUserProfile = async () => {
     try {
-      const res = await fetch(`http://localhost:5000/api/v1/user/${userId}`);
+      const res = await fetch(`https://nstu-medical-server.onrender.com/api/v1/user/${userId}`);
       const data = await res.json();
       setUser(data || {});
       setLoading(false);
@@ -81,7 +81,7 @@ export default function UserProfile() {
         return;
       }
 
-      const res = await fetch(`http://localhost:5000/api/v1/user/${userId}`, {
+      const res = await fetch(`https://nstu-medical-server.onrender.com/api/v1/user/${userId}`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",

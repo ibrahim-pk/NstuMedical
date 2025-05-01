@@ -14,7 +14,7 @@ export default function DutyDoctor() {
         const fetchDoctors = async () => {
             try {
                 const res = await fetch(
-                    `http://localhost:5000/api/v1/doctors/duty-doctor`
+                    `https://nstu-medical-server.onrender.com/api/v1/doctors/duty-doctor`
                 );
                 const data = await res.json();
                 console.log(data)

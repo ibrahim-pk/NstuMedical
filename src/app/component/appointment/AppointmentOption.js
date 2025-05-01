@@ -47,7 +47,7 @@ const AppointmentOption = ({ appointmentOption, date }) => {
     setLoader(true);
 
     try {
-      const res = await fetch("http://localhost:5000/api/v1/appointment/book", {
+      const res = await fetch("https://nstu-medical-server.onrender.com/api/v1/appointment/book", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),

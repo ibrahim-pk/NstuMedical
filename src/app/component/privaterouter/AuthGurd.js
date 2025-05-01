@@ -8,7 +8,7 @@ export default function AuthGuard({ children }) {
 
   useEffect(() => {
     const token = localStorage.getItem("token"); // Get token from localStorage
-   console.log("token:",token)
+   //console.log("token:",token)
     if (!token) {
       router.push("/login"); // Redirect to login if not authenticated
     }

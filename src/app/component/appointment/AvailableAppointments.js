@@ -22,7 +22,7 @@ const AvailableAppointments = ({ selectedDate }) => {
     useEffect(() => {
         const fetchAvailability = async (slot, setter) => {
             try {
-                const res = await fetch(`http://localhost:5000/api/v1/appointment/available-appointment/slot${slot}`, {
+                const res = await fetch(`https://nstu-medical-server.onrender.com/api/v1/appointment/available-appointment/slot${slot}`, {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({ date, value: slot, time: slots[slot - 1].time })

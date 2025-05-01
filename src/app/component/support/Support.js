@@ -7,7 +7,7 @@ export default function HelpSupport() {
         <div className="flex flex-col bg-white rounded-lg md:flex-row items-center justify-center ">
           {/* Left Side - Doctor Image */}
           <div className="md:w-1/2 flex justify-center">
-            <Image
+            <img
               src="/images/doctor.png"
               alt="Doctor"
               width={300}

@@ -7,21 +7,21 @@ export default function Specialized() {
             description: `01333199085 Or 01333199085`,
             icon: "🏥", // Replace with actual icon
             buttonText: "More Information",
-            link:"/location"
+            link:"/location/"
         },
         {
             title: "DOCTORS",
             description: "02334496572 (Office)",
             icon: "📋", // Replace with actual icon
             buttonText: "Meet Our Doctors",
-            link:"/doctor/profile"
+            link:"/doctor/profile/"
         },
         {
             title: "APPOINTMENTS",
             description: "01792991827 (Psychologist)",
             icon: "📅", // Replace with actual icon
             buttonText: "Appoint Consultation",
-             link:"/appointment"
+             link:"/appointment/"
         },
     ];
 

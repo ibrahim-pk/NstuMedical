@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import Link from "next/link";
 
 const HeaderSection = () => {
@@ -8,12 +7,15 @@ const HeaderSection = () => {
     <header className="relative w-full h-[60vh] md:h-[80vh] flex flex-col items-center justify-center text-white text-center px-4">
       {/* Background Image */}
       <div className="absolute inset-0 w-full h-full">
-        <Image
+        <img
           src="/images/medical.jpg" // 🔹 Replace with actual image path
           alt="Medical Centre Background"
-          layout="fill"
-          objectFit="cover"
-          quality={100}
+          style={{
+            width: '100%',
+            height: '100%',
+            objectFit: 'cover',
+            position: 'absolute',
+          }}
         />
         <div className="absolute inset-0 bg-black bg-opacity-50"></div>
       </div>
@@ -43,10 +45,10 @@ const HeaderSection = () => {
 
         {/* Buttons */}
         <div className="mt-6 flex justify-center gap-4">
-          <Link href="/service" className="border border-white py-2 px-4 rounded-md hover:bg-white hover:text-black transition">
+          <Link href="/service/" className="border border-white py-2 px-4 rounded-md hover:bg-white hover:text-black transition">
             More Services
           </Link>
-          <Link href="/contact" className="border border-white py-2 px-4 rounded-md hover:bg-white hover:text-black transition">
+          <Link href="/contact/" className="border border-white py-2 px-4 rounded-md hover:bg-white hover:text-black transition">
             Contact
           </Link>
         </div>

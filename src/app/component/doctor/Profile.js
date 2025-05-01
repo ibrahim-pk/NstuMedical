@@ -17,7 +17,7 @@ export default function DoctorProfile() {
     const fetchDoctors = async () => {
         try {
             const res = await fetch(
-                `http://localhost:5000/api/v1/doctors?page=${page}&limit=${limit}&search=${search}`
+                `https://nstu-medical-server.onrender.com/api/v1/doctors?page=${page}&limit=${limit}&search=${search}`
             );
             const data = await res.json();
             setDoctors(data.doctors);
